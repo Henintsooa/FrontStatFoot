@@ -13,9 +13,14 @@ import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab1Domicile from './pages/Tab1Domicile';
-import Tab1Attaque from './pages/Tab1Exterieur';
+import Tab1Exterieur from './pages/Tab1Exterieur';
 import Tab2 from './pages/Tab2';
+import Tab2Domicile from './pages/Tab2Domicile';
+import Tab2Exterieur from './pages/Tab2Exterieur';
+
 import Tab3 from './pages/Tab3';
+import Tab3Domicile from './pages/Tab3Domicile';
+import Tab3Exterieur from './pages/Tab3Exterieur';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -43,65 +48,93 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
     <IonTabBar slot="top">
-          <IonTabButton tab="tab1Generale" href="/tab1">
-              <IonRouterLink routerLink="/tab1">
-                Generale
-              </IonRouterLink>
-          </IonTabButton>
-          <IonTabButton tab="tab1Domicile" href="/tab1Domicile">
-            <IonRouterLink routerLink="/tab1Domicile">
-                Domicile
-              </IonRouterLink>
-          </IonTabButton>
-          <IonTabButton tab="tab1Attaque" href="/tab1Attaque">
-            <IonRouterLink routerLink="/tab1Attaque">
-                Exterieur
-              </IonRouterLink>
-          </IonTabButton>
-        </IonTabBar>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
-          </Route>
-          <Route exact path="/tab1Domicile">
-            <Tab1Domicile />
-          </Route>
-          <Route exact path="/tab1Attaque">
-            <Tab1Attaque />
-          </Route>
+      <IonTabButton tab="tab1" href="/tab1">
+        <IonRouterLink routerLink="/tab1/generale">
+          Generale Generale
+        </IonRouterLink>
+      </IonTabButton>
+      <IonTabButton tab="tab1" href="/tab1">
+        <IonRouterLink routerLink="/tab1/domicile">
+          Generale Domicile
+        </IonRouterLink>
+      </IonTabButton>
+      <IonTabButton tab="tab1" href="/tab1">
+        <IonRouterLink routerLink="/tab1/exterieur">
+          Generale Exterieur
+        </IonRouterLink>
+      </IonTabButton>
 
-          <Route exact path="/tab2">
-            <Tab2 />
-          </Route>
+      
+      <IonTabButton tab="tab2" href="/tab2">
+        <IonRouterLink routerLink="/tab2/generale">
+          Defense Generale
+        </IonRouterLink>
+      </IonTabButton>
+      <IonTabButton tab="tab2" href="/tab2">
+        <IonRouterLink routerLink="/tab2/domicile">
+          Defense Domicile
+        </IonRouterLink>
+      </IonTabButton>
+      <IonTabButton tab="tab2" href="/tab2">
+        <IonRouterLink routerLink="/tab2/exterieur">
+          Defense Exterieur
+        </IonRouterLink>
+      </IonTabButton>
 
-          <Route path="/tab3">
-            <Tab3 />
-          </Route>
+      <IonTabButton tab="tab3" href="/tab3">
+        <IonRouterLink routerLink="/tab3/generale">
+          Attaque Generale
+        </IonRouterLink>
+      </IonTabButton>
+      <IonTabButton tab="tab3" href="/tab3">
+        <IonRouterLink routerLink="/tab3/domicile">
+          Attaque Domicile
+        </IonRouterLink>
+      </IonTabButton>
+      <IonTabButton tab="tab3" href="/tab3">
+        <IonRouterLink routerLink="/tab3/exterieur">
+          Attaque Exterieur
+        </IonRouterLink>
+      </IonTabButton>
+    </IonTabBar>
+    
+    <IonTabs>
+      <IonRouterOutlet>
+        <Route path="/tab1/generale" component={Tab1} />
+        <Route path="/tab1/domicile" component={Tab1Domicile} />
+        <Route path="/tab1/exterieur" component={Tab1Exterieur} />
+
+        <Route path="/tab2/generale" component={Tab2} />
+        <Route path="/tab2/domicile" component={Tab2Domicile} />
+        <Route path="/tab2/exterieur" component={Tab2Exterieur} />
+
+        <Route path="/tab3/generale" component={Tab3} />
+        <Route path="/tab3/domicile" component={Tab3Domicile} />
+        <Route path="/tab3/exterieur" component={Tab3Exterieur} />
+      </IonRouterOutlet>
 
 
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
-              <IonRouterLink routerLink="/tab1">
-                Generale
-              </IonRouterLink>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonRouterLink routerLink="/tab2">
-                Defense
-              </IonRouterLink>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonRouterLink routerLink="/tab3">
-                Attaque
-              </IonRouterLink>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
+      <IonTabBar slot="bottom">
+        <IonTabButton tab="tab1" href="/tab1/generale">
+          <IonIcon aria-hidden="true" icon={triangle} />
+          <IonRouterLink routerLink="/tab1/generale">
+            Generale
+          </IonRouterLink>
+        </IonTabButton>
+        <IonTabButton tab="tab2" href="/tab2/generale">
+          <IonIcon aria-hidden="true" icon={ellipse} />
+          <IonRouterLink routerLink="/tab2/generale">
+            Defense
+          </IonRouterLink>
+        </IonTabButton>
+        <IonTabButton tab="tab3" href="/tab3/generale">
+          <IonIcon aria-hidden="true" icon={square} />
+          <IonRouterLink routerLink="/tab3/generale">
+            Attaque
+          </IonRouterLink>
+        </IonTabButton>
+      </IonTabBar>
+    </IonTabs>
     </IonReactRouter>
   </IonApp>
 );

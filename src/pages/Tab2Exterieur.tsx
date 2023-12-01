@@ -17,7 +17,6 @@ const MaTable: React.FC<{ data: any[] }> = ({ data }) => {
           <IonCol className="ion-text-center">Faute par minute</IonCol>
           <IonCol className="ion-text-center">Hors Jeu par minute</IonCol>
           <IonCol className="ion-text-center">Note</IonCol>
-          <IonCol className="ion-text-center">idType</IonCol>
         </IonRow>
   
         {data.map((ligne, index) => (
@@ -30,7 +29,6 @@ const MaTable: React.FC<{ data: any[] }> = ({ data }) => {
             <IonCol className="ion-text-center">{ligne.faute_pm}</IonCol>
             <IonCol className="ion-text-center">{ligne.hors_jeu_pm}</IonCol>
             <IonCol className="ion-text-center">{ligne.note}</IonCol>
-            <IonCol className="ion-text-center">{ligne.idType}</IonCol>
           </IonRow>
         ))}
       </IonGrid>
