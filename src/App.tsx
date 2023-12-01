@@ -12,6 +12,8 @@ import {
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
+import Tab1Domicile from './pages/Tab1Domicile';
+import Tab1Attaque from './pages/Tab1Exterieur';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 
@@ -41,19 +43,19 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
     <IonTabBar slot="top">
-          <IonTabButton tab="tab1Generale" href="/tab1Generale">
-              <IonRouterLink routerLink="/tab1Generale">
+          <IonTabButton tab="tab1Generale" href="/tab1">
+              <IonRouterLink routerLink="/tab1">
                 Generale
               </IonRouterLink>
           </IonTabButton>
-          <IonTabButton tab="tab2Defense" href="/tab2Defense">
-            <IonRouterLink routerLink="/tab2Defense">
-                Defense
+          <IonTabButton tab="tab1Domicile" href="/tab1Domicile">
+            <IonRouterLink routerLink="/tab1Domicile">
+                Domicile
               </IonRouterLink>
           </IonTabButton>
-          <IonTabButton tab="tab3Attaque" href="/tab3Attaque">
-            <IonRouterLink routerLink="/tab3Attaque">
-                Attaque
+          <IonTabButton tab="tab1Attaque" href="/tab1Attaque">
+            <IonRouterLink routerLink="/tab1Attaque">
+                Exterieur
               </IonRouterLink>
           </IonTabButton>
         </IonTabBar>
@@ -62,15 +64,22 @@ const App: React.FC = () => (
           <Route exact path="/tab1">
             <Tab1 />
           </Route>
+          <Route exact path="/tab1Domicile">
+            <Tab1Domicile />
+          </Route>
+          <Route exact path="/tab1Attaque">
+            <Tab1Attaque />
+          </Route>
+
           <Route exact path="/tab2">
             <Tab2 />
           </Route>
+
           <Route path="/tab3">
             <Tab3 />
           </Route>
-          <Route exact path="/">
-            <Redirect to="/tab1" />
-          </Route>
+
+
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">

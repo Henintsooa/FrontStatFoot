@@ -11,10 +11,11 @@ const MaTable: React.FC<{ data: any[] }> = ({ data }) => {
         <IonRow className="table-header">
           <IonCol className="ion-text-center">Nom d'Équipe</IonCol>
           <IonCol className="ion-text-center">Nom de Compétition</IonCol>
-          <IonCol className="ion-text-center">Tirs pm</IonCol>
-          <IonCol className="ion-text-center">Tirs CA pm</IonCol>
-          <IonCol className="ion-text-center">Dribbles par minute</IonCol>
-          <IonCol className="ion-text-center">Faute Subies pm</IonCol>
+          <IonCol className="ion-text-center">Tirs par minute</IonCol>
+          <IonCol className="ion-text-center">Tacles par minute</IonCol>
+          <IonCol className="ion-text-center">Interception par minute</IonCol>
+          <IonCol className="ion-text-center">Faute par minute</IonCol>
+          <IonCol className="ion-text-center">Hors Jeu par minute</IonCol>
           <IonCol className="ion-text-center">Note</IonCol>
           <IonCol className="ion-text-center">idType</IonCol>
         </IonRow>
@@ -24,9 +25,9 @@ const MaTable: React.FC<{ data: any[] }> = ({ data }) => {
             <IonCol className="ion-text-center">{ligne.nomEquipe}</IonCol>
             <IonCol className="ion-text-center">{ligne.nomConception}</IonCol>
             <IonCol className="ion-text-center">{ligne.tirs_pm}</IonCol>
-            <IonCol className="ion-text-center">{ligne.tirs_CA_pm}</IonCol>
-            <IonCol className="ion-text-center">{ligne.dribbles_pm}</IonCol>
-            <IonCol className="ion-text-center">{ligne.faute_subies_pm}</IonCol>
+            <IonCol className="ion-text-center">{ligne.tacles_pm}</IonCol>
+            <IonCol className="ion-text-center">{ligne.interceptions_pm}</IonCol>
+            <IonCol className="ion-text-center">{ligne.faute_pm}</IonCol>
             <IonCol className="ion-text-center">{ligne.hors_jeu_pm}</IonCol>
             <IonCol className="ion-text-center">{ligne.note}</IonCol>
             <IonCol className="ion-text-center">{ligne.idType}</IonCol>
@@ -36,11 +37,11 @@ const MaTable: React.FC<{ data: any[] }> = ({ data }) => {
     );
 };
 
-const Tab3: React.FC = () => {
+const Tab2Domicile: React.FC = () => {
   const [apiData, setApiData] = useState<any[]>([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5105/ViewAttaqueController/ViewAttaque/type1')
+    axios.get('http://localhost:5105/ViewDefenseController/ViewDefense/type2')
       .then((response) => {
         console.log('Données récupérées avec succès :', response.data);
         setApiData(response.data);
@@ -57,4 +58,5 @@ const Tab3: React.FC = () => {
   );
 };
 
-export default Tab3;
+
+export default Tab2Domicile;

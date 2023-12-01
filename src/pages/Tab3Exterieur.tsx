@@ -36,11 +36,11 @@ const MaTable: React.FC<{ data: any[] }> = ({ data }) => {
     );
 };
 
-const Tab3: React.FC = () => {
+const Tab3Exterieur: React.FC = () => {
   const [apiData, setApiData] = useState<any[]>([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5105/ViewAttaqueController/ViewAttaque/type1')
+    axios.get('http://localhost:5105/ViewAttaqueController/ViewAttaque/type3')
       .then((response) => {
         console.log('Données récupérées avec succès :', response.data);
         setApiData(response.data);
@@ -57,4 +57,4 @@ const Tab3: React.FC = () => {
   );
 };
 
-export default Tab3;
+export default Tab3Exterieur;
