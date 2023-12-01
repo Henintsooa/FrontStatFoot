@@ -2,20 +2,26 @@
 
 /* Style pour la table */
 table {
+    margin-top: 100px;
     width: 100%;
     border-collapse: collapse;
-    background-color: aqua;
+    color: rgb(255, 255, 255);
   }
   
   /* Style pour les cellules de la table */
   td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #000000;
     text-align: left;
     padding: 8px;
   }
   
   /* Style pour les lignes impaires (facultatif, pour une meilleure lisibilité) */
   tr:nth-child(odd) {
-    background-color: #f2f2f2;
+    background-color: #000000;
   }
-  
+
+  .table-container {
+  padding-top: 56px; /* Ajustez cette valeur selon la hauteur de votre IonTabBar */
+}
+
+/* Vos autres styles CSS ici */

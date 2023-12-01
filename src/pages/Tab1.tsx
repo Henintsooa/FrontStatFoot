@@ -1,63 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { IonGrid, IonRow, IonCol } from '@ionic/react';
 
-import { IonTabs, IonTabBar, IonTabButton, IonLabel, IonRouterOutlet } from '@ionic/react';
 import './Tab1.css';
 
-
-const MaTable: React.FC = () => {
-  const donnees = [
-    { id: 1, col1: 'A1', col2: 'B1', col3: 'C1', col4: 'D1', col5: 'E1', col6: 'F1', col7: 'G1', col8: 'H1', col9: 'I1', col10: 'J1' },
-    { id: 2, col1: 'A2', col2: 'B2', col3: 'C2', col4: 'D2', col5: 'E2', col6: 'F2', col7: 'G2', col8: 'H2', col9: 'I2', col10: 'J2' },
-    { id: 3, col1: 'A3', col2: 'B3', col3: 'C3', col4: 'D3', col5: 'E3', col6: 'F3', col7: 'G3', col8: 'H3', col9: 'I3', col10: 'J3' },
-    { id: 4, col1: 'A4', col2: 'B4', col3: 'C4', col4: 'D4', col5: 'E4', col6: 'F4', col7: 'G4', col8: 'H4', col9: 'I4', col10: 'J4' },
-    { id: 5, col1: 'A5', col2: 'B5', col3: 'C5', col4: 'D5', col5: 'E5', col6: 'F5', col7: 'G5', col8: 'H5', col9: 'I5', col10: 'J5' },
-  ];
-
-  return (
-    <table className="table">
-      <IonRow>
-        <IonCol>ID</IonCol>
-        <IonCol>Colonne 1</IonCol>
-        <IonCol>Colonne 2</IonCol>
-        <IonCol>Colonne 3</IonCol>
-        <IonCol>Colonne 4</IonCol>
-        <IonCol>Colonne 5</IonCol>
-        <IonCol>Colonne 6</IonCol>
-        <IonCol>Colonne 7</IonCol>
-        <IonCol>Colonne 8</IonCol>
-        <IonCol>Colonne 9</IonCol>
-        <IonCol>Colonne 10</IonCol>
-      </IonRow>
-
-      {donnees.map((ligne) => (
-        <IonRow key={ligne.id}>
-          <IonCol>{ligne.id}</IonCol>
-          <IonCol>{ligne.col1}</IonCol>
-          <IonCol>{ligne.col2}</IonCol>
-          <IonCol>{ligne.col3}</IonCol>
-          <IonCol>{ligne.col4}</IonCol>
-          <IonCol>{ligne.col5}</IonCol>
-          <IonCol>{ligne.col6}</IonCol>
-          <IonCol>{ligne.col7}</IonCol>
-          <IonCol>{ligne.col8}</IonCol>
-          <IonCol>{ligne.col9}</IonCol>
-          <IonCol>{ligne.col10}</IonCol>
+const MaTable: React.FC<{ data: any[] }> = ({ data }) => {
+  console.log('Données reçues dans MaTable :', data);
+    return (
+      <IonGrid className="table-container">
+        <IonRow className="table-header">
+          <IonCol className="ion-text-center">Nom d'Équipe</IonCol>
+          <IonCol className="ion-text-center">Nom de Compétition</IonCol>
+          <IonCol className="ion-text-center">Tirs par minute</IonCol>
+          <IonCol className="ion-text-center">Tirs CA par minute</IonCol>
+          <IonCol className="ion-text-center">Dribbles par minute</IonCol>
+          <IonCol className="ion-text-center">Fautes subies par minute</IonCol>
+          <IonCol className="ion-text-center">Note</IonCol>
+          <IonCol className="ion-text-center">ID de Type</IonCol>
         </IonRow>
-      ))}
-    </table>
-  );
+  
+        {data.map((ligne, index) => (
+          <IonRow key={index} className="table-row">
+            <IonCol className="ion-text-center">{ligne.nomEquipe}</IonCol>
+            <IonCol className="ion-text-center">{ligne.nomCompetition}</IonCol>
+            <IonCol className="ion-text-center">{ligne.tirs_pm}</IonCol>
+            <IonCol className="ion-text-center">{ligne.tirs_CA_pm}</IonCol>
+            <IonCol className="ion-text-center">{ligne.dribbles_pm}</IonCol>
+            <IonCol className="ion-text-center">{ligne.faute_subies_pm}</IonCol>
+            <IonCol className="ion-text-center">{ligne.note}</IonCol>
+            <IonCol className="ion-text-center">{ligne.idType}</IonCol>
+          </IonRow>
+        ))}
+      </IonGrid>
+    );
 };
 
 const Tab1: React.FC = () => {
+  const [apiData, setApiData] = useState<any[]>([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:5105/ViewAttaqueController/ViewAttaque')
+      .then((response) => {
+        console.log('Données récupérées avec succès :', response.data);
+        setApiData(response.data);
+      })
+      .catch((error) => {
+        console.error('Erreur lors de la récupération des données :', error);
+      });
+  }, []);
+  
   return (
     <div>
-      {/* Incorporation du composant MaTable */}
-      <MaTable />
-
-      {/* Votre autre code ici */}
+      <MaTable data={apiData} />
     </div>
   );
 };
+
 
 export default Tab1;

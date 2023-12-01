@@ -41,21 +41,18 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
     <IonTabBar slot="top">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
-              <IonRouterLink routerLink="/tab1">
+          <IonTabButton tab="tab1Generale" href="/tab1Generale">
+              <IonRouterLink routerLink="/tab1Generale">
                 Generale
               </IonRouterLink>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonRouterLink routerLink="/tab2">
+          <IonTabButton tab="tab2Defense" href="/tab2Defense">
+            <IonRouterLink routerLink="/tab2Defense">
                 Defense
               </IonRouterLink>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonRouterLink routerLink="/tab3">
+          <IonTabButton tab="tab3Attaque" href="/tab3Attaque">
+            <IonRouterLink routerLink="/tab3Attaque">
                 Attaque
               </IonRouterLink>
           </IonTabButton>
