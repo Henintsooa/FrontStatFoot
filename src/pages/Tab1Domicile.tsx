@@ -43,7 +43,7 @@ const Tab1Domicile: React.FC = () => {
   const [apiDataDomicile, setApiDataDomicile] = useState<any[]>([]);
 
   useEffect(() => {
-    axios.get('http://13.245.158.233:5003/ViewGeneraleController/ViewGenerale/type2')
+    axios.get('https://13.245.158.233:5003/ViewGeneraleController/ViewGenerale/type2')
       .then((response) => {
         console.log('Données récupérées avec succès :', response.data);
         setApiDataDomicile(response.data);

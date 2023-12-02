@@ -37,7 +37,7 @@ const Tab3Domicile: React.FC = () => {
   const [apiData, setApiData] = useState<any[]>([]);
 
   useEffect(() => {
-    axios.get('http://13.245.158.233:5003/ViewAttaqueController/ViewAttaque/type2')
+    axios.get('https://13.245.158.233:5003/ViewAttaqueController/ViewAttaque/type2')
       .then((response) => {
         console.log('Données récupérées avec succès :', response.data);
         setApiData(response.data);
