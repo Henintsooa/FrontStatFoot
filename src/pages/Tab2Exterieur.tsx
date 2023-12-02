@@ -39,7 +39,7 @@ const Tab2Exterieur: React.FC = () => {
   const [apiData, setApiData] = useState<any[]>([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5105/ViewDefenseController/ViewDefense/type3')
+    axios.get('http://13.245.158.233:5003/ViewDefenseController/ViewDefense/type3')
       .then((response) => {
         console.log('Données récupérées avec succès :', response.data);
         setApiData(response.data);
