@@ -9,13 +9,13 @@ const MaTable: React.FC<{ data: any[] }> = ({ data }) => {
     return (
       <IonGrid className="table-container">
         <IonRow className="table-header">
-          <IonCol className="ion-text-center">Nom d'Équipe</IonCol>
-          <IonCol className="ion-text-center">Nom de Compétition</IonCol>
-          <IonCol className="ion-text-center">Tirs par minute</IonCol>
-          <IonCol className="ion-text-center">Tacles par minute</IonCol>
-          <IonCol className="ion-text-center">Interception par minute</IonCol>
-          <IonCol className="ion-text-center">Faute par minute</IonCol>
-          <IonCol className="ion-text-center">Hors Jeu par minute</IonCol>
+          <IonCol className="ion-text-center">Équipe</IonCol>
+          <IonCol className="ion-text-center">Compétition</IonCol>
+          <IonCol className="ion-text-center">Tirs pm</IonCol>
+          <IonCol className="ion-text-center">Tacles pm</IonCol>
+          <IonCol className="ion-text-center">Interception par minutpme</IonCol>
+          <IonCol className="ion-text-center">Faute pm</IonCol>
+          <IonCol className="ion-text-center">Hors Jeu pm</IonCol>
           <IonCol className="ion-text-center">Note</IonCol>
         </IonRow>
   
