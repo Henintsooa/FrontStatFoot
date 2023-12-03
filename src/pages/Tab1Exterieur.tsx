@@ -43,7 +43,7 @@ const Tab1Exterieur: React.FC = () => {
   const [apiDataDomicile, setApiDataDomicile] = useState<any[]>([]);
 
   useEffect(() => {
-    axios.get('https://13.245.158.233:5003/ViewGeneraleController/ViewGenerale/type3')
+    axios.get('http://13.245.158.233:5003/ViewGeneraleController/ViewGenerale/type3')
       .then((response) => {
         console.log('Données récupérées avec succès :', response.data);
         setApiDataDomicile(response.data);
