@@ -13,7 +13,7 @@ const MaTable: React.FC<{ data: any[] }> = ({ data }) => {
           <IonCol className="ion-text-center">Compétition</IonCol>
           <IonCol className="ion-text-center">Tirs pm</IonCol>
           <IonCol className="ion-text-center">Tacles pm</IonCol>
-          <IonCol className="ion-text-center">Interception par minutpme</IonCol>
+          <IonCol className="ion-text-center">Interception pm</IonCol>
           <IonCol className="ion-text-center">Faute pm</IonCol>
           <IonCol className="ion-text-center">Hors Jeu pm</IonCol>
           <IonCol className="ion-text-center">Note</IonCol>
@@ -39,7 +39,7 @@ const Tab2Domicile: React.FC = () => {
   const [apiData, setApiData] = useState<any[]>([]);
 
   useEffect(() => {
-    axios.get('http://13.245.158.233:5003/ViewDefenseController/ViewDefense/type2')
+    axios.get('https://codewitharo.me/Defenses/domicile')
       .then((response) => {
         console.log('Données récupérées avec succès :', response.data);
         setApiData(response.data);

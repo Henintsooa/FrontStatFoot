@@ -43,7 +43,7 @@ const Tab1: React.FC = () => {
   const [apiData, setApiData] = useState<any[]>([]);
 
   useEffect(() => {
-    axios.get('http://13.245.158.233:5003/ViewGeneraleController/ViewGenerale/type1')
+    axios.get('https://codewitharo.me/Generales/generale')
       .then((response) => {
         console.log('Données récupérées avec succès :', response.data);
         setApiData(response.data);

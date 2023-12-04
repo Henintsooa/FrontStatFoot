@@ -37,7 +37,7 @@ const Tab3Exterieur: React.FC = () => {
   const [apiData, setApiData] = useState<any[]>([]);
 
   useEffect(() => {
-    axios.get('http://13.245.158.233:5003/ViewAttaqueController/ViewAttaque/type3')
+    axios.get('https://codewitharo.me/Attaques/exterieur')
       .then((response) => {
         console.log('Données récupérées avec succès :', response.data);
         setApiData(response.data);
